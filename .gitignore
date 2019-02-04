@@ -2,6 +2,8 @@
 *.bcf
 *.idx
 *.log
+*.snm
+*.nav
 *.out
 *.pdf
 *.run.xml
