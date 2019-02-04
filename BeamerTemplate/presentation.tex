@@ -1,0 +1,94 @@
+\documentclass[11pt]{beamer}
+\usetheme{CambridgeUS}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{csquotes}
+\usepackage{bussproofs}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=Java,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+\author{David Binder}
+\title{Title of Presentation}
+%\setbeamercovered{transparent} 
+\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+\institute{}
+\date{} 
+%\subject{}
+
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+\section{Motivation}
+\begin{frame}{Frame Title 1}
+	In distinction to Benacerraf, we pursue a \emph{pragmatic} interpretation of a structuralist philosophy of mathematics.\pause
+	
+	\begin{block}{Tsementzis 2017}
+		 \enquote{We take the practical reading of the structuralist thesis to indicate a \enquote{design constraint} for a foundation of mathematics.
+	 The motivating problem is thus to create a foundational system [\ldots] such that any grammatically well-formed property about a mathematical object is invariant under the appropriate criterion of identity for that object (as those are formalized in the given system).}
+	\end{block}\pause
+	(For \enquote{mathematical object} think group, topological space, category\ldots For \enquote{appropriate criterion of identity} think group isomorphism, homeomorphism, equivalence\ldots)
+\end{frame}
+
+\begin{frame}{Overview}
+	\begin{itemize}
+		\item Analysis of the problem.
+			\begin{itemize}
+				\item Why the relation \enquote{$\in$} is a problem. (Hint: It is untyped.)
+				\item Why the relation \enquote{$=$} is a problem. (Hint: It is too strict.)
+			\end{itemize}\pause
+		\item Towards a solution.
+			\begin{itemize}
+				\item Foundational Theories
+				\item Homotopy Types / $\omega$-Groupoids
+				\item \enquote{Homotopy (Type Theories)} and\\
+				\enquote{(Homotopy Type) Theories}
+				\item Univalence
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		{\huge{Thank you for your attention.}}
+	\end{center}
+\end{frame}
+\end{document}
