@@ -1,0 +1,452 @@
+%-------------------------------------------------------------------------------
+%----Usepackages----------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{csquotes}
+\usepackage{listings}
+\usepackage[style=numeric, backend=biber]{biblatex}
+\usepackage{textcomp}
+\usepackage{makeidx}
+
+% Doing calculations with LaTeX units -- needed for the vertical line in the footer
+% CTAN: http://www.ctan.org/pkg/calc
+\usepackage{calc}
+
+% Extended graphics support 
+% There is also a package named 'graphics' - watch out!
+% CTAN: http://www.ctan.org/pkg/graphicx
+\usepackage{graphicx}
+
+% Extendes support for floating objects (tables, figures), adds the [H] placing option (\begin{figure}[H]) which palces it "Here" (without any doubt).
+% CTAN: http://www.ctan.org/pkg/float
+\usepackage{float}
+
+% Extended color support
+% I use the command \definecolor for example. 
+% Option 'Table': Load the colortbl package, in order to use the tools for coloring rows, columns, and cells within tables.
+% CTAN: http://www.ctan.org/pkg/xcolor
+\usepackage[table]{xcolor} 
+
+% Nice tables
+% CTAN: http://www.ctan.org/pkg/booktabs
+\usepackage{booktabs}
+
+% Better support for ragged left and right. Provides the commands \RaggedRight and \RaggedLeft. 
+% Standard LaTeX commands are \raggedright and \raggedleft
+% http://www.ctan.org/pkg/ragged2e
+\usepackage{ragged2e}
+
+% Create function plots directly in LaTeX
+% CTAN: http://www.ctan.org/pkg/pgfplots
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+\usepackage{tikz}
+\usetikzlibrary{cd}
+% Special KOMA-Script package - I added it because I also use the float package in this template, see: 
+% http://tex.stackexchange.com/questions/51867/koma-warning-about-toc
+% CTAN: http://www.ctan.org/tex-archive/macros/latex/contrib/koma-script/doc
+\usepackage{scrhack}
+
+% Better support for marginnotes
+% new command: \marginnote
+% LaTeX standard command: \marginpar
+% CTAN: http://www.ctan.org/pkg/marginnote
+\usepackage{marginnote}
+
+% Extended header and footer support
+% CTAN: http://www.ctan.org/pkg/scrpage2
+\usepackage[%
+  	automark
+  	,ilines
+	,headsepline
+	,footsepline
+]{scrpage2}
+% User friendly interface to change layout parameters
+% CTAN: http://www.ctan.org/pkg/geometry
+\usepackage{geometry}
+\geometry{% siehe geometry.pdf (Figure 1)
+	bottom=30mm,
+	showframe=false, % For debugging: try true and see the layout frames
+	margin=30mm,
+	marginparsep=3mm,
+	marginparwidth=20mm
+}
+
+%-------------------------------------------------------------------------------
+%----Latex Math stuff-----------------------------------------------------------
+%-------------------------------------------------------------------------------
+\newcommand{\inv}{^{-1}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\Obj}[1]{\mathtt{Obj}(#1)}
+\newcommand{\Hom}[3]{\mathtt{Hom}_{#1}(#2,#3)}
+\newcommand{\id}[1]{\mathbf{1}_{#1}}
+%Categories
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Mon}{\mathbf{Mon}}
+\newcommand{\Grp}{\mathbf{Grp}}
+\newcommand{\Hask}{\mathbf{Hask}}
+%-------------------------------------------------------------------------------
+%----Latex stuff for Haskell listings-------------------------------------------
+%-------------------------------------------------------------------------------
+
+\definecolor{gray_ulisses}{gray}{0.55}
+\definecolor{castanho_ulisses}{rgb}{0.71,0.33,0.14}
+\definecolor{preto_ulisses}{rgb}{0.41,0.20,0.04}
+\definecolor{green_ulises}{rgb}{0.2,0.75,0}
+\lstdefinelanguage{HaskellUlisses} {
+	basicstyle=\ttfamily,
+	sensitive=true,
+	morecomment=[l][\color{gray_ulisses}\ttfamily]{--},
+	morecomment=[s][\color{gray_ulisses}\ttfamily]{\{-}{-\}},
+	morestring=[b]",
+	stringstyle=\color{red},
+	showstringspaces=false,
+	numberstyle=\tiny,
+	numberblanklines=true,
+	showspaces=false,
+	breaklines=true,
+	showtabs=false,
+	emph=
+	{[1]
+		FilePath,IOError,abs,acos,acosh,all,and,any,appendFile,approxRational,asTypeOf,asin,
+		asinh,atan,atan2,atanh,basicIORun,break,catch,ceiling,chr,compare,concat,concatMap,
+		const,cos,cosh,curry,cycle,decodeFloat,denominator,digitToInt,div,divMod,drop,
+		dropWhile,either,elem,encodeFloat,enumFrom,enumFromThen,enumFromThenTo,enumFromTo,
+		error,even,exp,exponent,fail,filter,flip,floatDigits,floatRadix,floatRange,floor,
+		fmap,foldl,foldl1,foldr,foldr1,fromDouble,fromEnum,fromInt,fromInteger,fromIntegral,
+		fromRational,fst,gcd,getChar,getContents,getLine,head,id,inRange,index,init,intToDigit,
+		interact,ioError,isAlpha,isAlphaNum,isAscii,isControl,isDenormalized,isDigit,isHexDigit,
+		isIEEE,isInfinite,isLower,isNaN,isNegativeZero,isOctDigit,isPrint,isSpace,isUpper,iterate,
+		last,lcm,length,lex,lexDigits,lexLitChar,lines,log,logBase,lookup,map,mapM,mapM_,max,
+		maxBound,maximum,maybe,min,minBound,minimum,mod,negate,not,notElem,null,numerator,odd,
+		or,ord,otherwise,pi,pred,primExitWith,print,product,properFraction,putChar,putStr,putStrLn,quot,
+		quotRem,range,rangeSize,read,readDec,readFile,readFloat,readHex,readIO,readInt,readList,readLitChar,
+		readLn,readOct,readParen,readSigned,reads,readsPrec,realToFrac,recip,rem,repeat,replicate,return,
+		reverse,round,scaleFloat,scanl,scanl1,scanr,scanr1,seq,sequence,sequence_,show,showChar,showInt,
+		showList,showLitChar,showParen,showSigned,showString,shows,showsPrec,significand,signum,sin,
+		sinh,snd,span,splitAt,sqrt,subtract,succ,sum,tail,take,takeWhile,tan,tanh,threadToIOResult,toEnum,
+		toInt,toInteger,toLower,toRational,toUpper,truncate,uncurry,undefined,unlines,until,unwords,unzip,
+		unzip3,userError,words,writeFile,zip,zip3,zipWith,zipWith3,listArray,doParse
+	},
+	emphstyle={[1]\color{blue}},
+	emph=
+	{[2]
+		Bool,Char,Double,Either,Float,IO,Integer,Int,Maybe,Ordering,Rational,Ratio,ReadS,ShowS,String,
+		Word8,InPacket
+	},
+	emphstyle={[2]\color{castanho_ulisses}},
+	emph=
+	{[3]
+		case,class,data,deriving,do,else,if,import,in,infixl,infixr,instance,let,
+		module,of,primitive,then,type,where
+	},
+	emphstyle={[3]\color{preto_ulisses}\textbf},
+	emph=
+	{[4]
+		quot,rem,div,mod,elem,notElem,seq
+	},
+	emphstyle={[4]\color{castanho_ulisses}\textbf},
+	emph=
+	{[5]
+		EQ,False,GT,Just,LT,Left,Nothing,Right,True,Show,Eq,Ord,Num
+	},
+	emphstyle={[5]\color{preto_ulisses}\textbf}
+}
+\lstnewenvironment{code}
+{\lstset{language=HaskellUlisses}}
+{\smallskip}
+
+%-------------------------------------------------------------------------------
+%----Latex stuff for Commutative Diagrams---------------------------------------
+%-------------------------------------------------------------------------------
+%A Hack for enabling the coexistence of the babel and tikzcd package.
+\newenvironment{cd}{ \shorthandoff{"}\begin{tikzcd}}{\end{tikzcd} \shorthandon{"}}
+
+%-------------------------------------------------------------------------------
+%----Latex stuff for Definition and Theorem environments------------------------
+%-------------------------------------------------------------------------------
+\makeatletter
+\newtheoremstyle{indented}
+  {3pt}% space before
+  {3pt}% space after
+  {\addtolength{\@totalleftmargin}{1.5em}
+   \addtolength{\linewidth}{-1.5em}
+   \parshape 1 1.5em \linewidth}% body font
+  {}% indent
+  {\bfseries}% header font
+  {.}% punctuation
+  {.5em}% after theorem header
+  {}% header specification (empty for default)
+\makeatother
+
+\theoremstyle{indented}
+\newtheorem{Def}{Definition}
+\newtheorem{Lem}{Lemma}
+\newtheorem{Bsp}{Beispiel}
+\newtheorem{Thm}{Theorem}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+%-------------------------------------------------------------------------------
+%----Latex stuff for Textboxes--------------------------------------------------
+%-------------------------------------------------------------------------------
+\usepackage[many]{tcolorbox}
+\newtcolorbox{textbox}[1][]{
+  breakable,
+  freelance,
+  title=#1,
+  colback=white,
+  colbacktitle=white,
+  coltitle=myColorMainB,
+  fonttitle=\bfseries,
+  bottomrule=0pt,
+  boxrule=0pt,
+  colframe=white,
+  overlay unbroken and first={
+  \draw[myColorMainB,line width=3pt]
+    ([xshift=5pt]frame.north west) -- 
+    (frame.north west) -- 
+    (frame.south west);
+  \draw[myColorMainB,line width=3pt]
+    ([xshift=-5pt]frame.north east) -- 
+    (frame.north east) -- 
+    (frame.south east);
+  },
+  overlay unbroken app={
+  \draw[myColorMainB,line width=3pt,line cap=rect]
+    (frame.south west) -- 
+    ([xshift=5pt]frame.south west);
+  \draw[myColorMainB,line width=3pt,line cap=rect]
+    (frame.south east) -- 
+    ([xshift=-5pt]frame.south east);
+  },
+  overlay middle and last={
+  \draw[myColorMainB,line width=3pt]
+    (frame.north west) -- 
+    (frame.south west);
+  \draw[myColorMainB,line width=3pt]
+    (frame.north east) -- 
+    (frame.south east);
+  },
+  overlay last app={
+  \draw[myColorMainB,line width=3pt,line cap=rect]
+    (frame.south west) --
+    ([xshift=5pt]frame.south west);
+  \draw[myColorMainB,line width=3pt,line cap=rect]
+    (frame.south east) --
+    ([xshift=-5pt]frame.south east);
+  },
+}
+
+\definecolor[named]{myColorMainA}{RGB}{0,26,153}
+\definecolor[named]{myColorMainB}{RGB}{174,49,54}
+%%% File encoding is ISO-8859-1 (also known as Latin-1)
+%%% You can use special characters just like ä,ü and ñ
+
+% ##############################################
+% Start: Table of Contents (TOC) Customization
+% ##############################################
+%
+
+% Level for numbered captions
+\setcounter{secnumdepth}{5}
+
+% Level of chapters that appear in Table of Contents
+\setcounter{tocdepth}{5} % bis wohin ins Inhaltsverzeichnis aufnehmen
+% -2 no caption at all
+% -1 part
+% 0  chapter
+% 1  section    
+% 2  subsection 
+% 3  subsubsection
+% 4  paragraph
+% 5  subparagraph
+
+% KOMA-Script code to adjust TOC
+% Applying the color 'myColorMainA' which is defined in the main file (MainFile.tex)
+\makeatletter
+\addtokomafont{chapterentrypagenumber}{\color{myColorMainA}}
+\addtokomafont{chapterentry}{\color{myColorMainA}}
+\makeatother
+
+%
+% #######################
+% End: Table of Contents (TOC) Customization
+% #######################
+
+% ##############################################
+% Start: Floating Object Customization
+% ##############################################
+%
+
+% Extended support for catioons of figures and tables etc.
+% CTAN: http://www.ctan.org/pkg/caption
+\usepackage[%
+	font={small},
+	labelfont={bf,sf},
+	format=hang, % try plain or hang
+	margin=5pt,
+]{caption}
+%
+
+% #######################
+% End: Floating Object Customization
+% #######################
+
+% ##############################################
+% Start: Headings Customization
+% ##############################################
+%
+
+% KOMA-Script code to customize the headings
+% Applying the color 'myColorMainA' which is defined in the main file (MainFile.tex)
+\addtokomafont{chapter}{\color{myColorMainA}}
+\addtokomafont{section}{\color{myColorMainA}}
+\addtokomafont{subsection}{\color{myColorMainA}}
+\addtokomafont{subsubsection}{\color{myColorMainA}}
+\addtokomafont{paragraph}{\color{myColorMainA}}
+\addtokomafont{subparagraph}{\color{myColorMainA}}
+
+% #######################
+% End: Headings Customization
+% #######################
+% Custom command fpr the margin notes: \myMarginnote{Your Text}
+% Comment on the \lineskiplimit=-\maxdimen:
+% See http://tex.stackexchange.com/questions/49072/
+% Without it the line spacing of the normal text was changed (ugly).
+\newcommand{\myMarginnote}[1]{%
+	\marginnote{% needs marginnote package
+		\ifthispageodd{\RaggedRight}{\RaggedLeft}% needs ragged2e package
+		\color{myColorMainB}%
+		\lineskiplimit=-\maxdimen% 
+		\normalfont\sffamily\scriptsize%
+		#1}%
+}
+
+% ##############################################
+% Start: Header and Footer Customization
+% ##############################################
+%
+
+% KOMA-Script code for header and footer font
+\setkomafont{pageheadfoot}{%
+	\normalfont\sffamily\bfseries
+	}
+\setkomafont{pagefoot}{%
+	\normalfont\sffamily
+	}
+\setkomafont{pagenumber}{%
+	\normalfont\rmfamily
+	}
+
+% Define width of header
+\setheadwidth[0pt]{textwithmarginpar}
+
+% Define with of header line
+\setheadsepline{0.4pt}
+
+% Define width of footer
+\setfootwidth[0pt]{text}
+% Define with of footer line (here: no line)
+\setfootsepline[text]{0pt}
+
+% Some calculations
+% calc package is needed which is loaded here: 01_Preamble/CommonPackages.tex
+% If you want to understand the calculations visit:
+% http://en.wikibooks.org/wiki/LaTeX/Page_Layout
+\newlength{\myLenghthFootAbstand}
+\setlength{\myLenghthFootAbstand}{\paperheight-1in-\topmargin- \headheight-\headsep-\textheight-\footskip}
+\newlength{\myLenghthTemp}
+\setlength{\myLenghthTemp}{\myLenghthFootAbstand+\baselineskip}
+
+% Define content of header and footer
+% Using some scrpage2 commands here. The scrpage2 package is loaded here: 01_Preamble/KOMA-Script-Packages.tex
+% Some LaTeX magic...
+% Clear all defaults
+\clearscrheadfoot
+% Header
+\ohead{%
+	\textcolor{myColorMainA}{\headmark}
+	}
+% Left (even page numbers) footer
+\lefoot%
+[% scrplain style (begin)
+	\setlength{\unitlength}{\myLenghthFootAbstand}%
+	\begin{picture}(0,0)%
+		\put(0,-1)%
+		{%
+			\makebox(0,0)[lb]%
+			{%
+				\rule{0.4pt}{\myLenghthTemp}%
+			}%
+		}%
+	\end{picture}\llap{\pagemark~}%
+]% scrplain style (end)
+%
+{% scrheadings style (begin)
+	\setlength{\unitlength}{\myLenghthFootAbstand}%
+	\begin{picture}(0,0)%
+		\put(0,-1)%
+		{%
+			\makebox(0,0)[lb]%
+			{%
+				\rule{0.4pt}{\myLenghthTemp}%
+			}%
+		}%
+	\end{picture}\llap{\pagemark~}%
+}% scrheadings style (end)
+
+% Right (odd page numbers) footer
+\rofoot%
+[% scrplain style (begin)
+	\rlap{~\pagemark}%%
+	\setlength{\unitlength}{\myLenghthFootAbstand}%
+	\begin{picture}(0,0)%
+		\put(0,-1)%
+		{%
+			\makebox(0,0)[lb]%
+			{%
+				\rule{0.4pt}{\myLenghthTemp}%
+			}%
+		}%
+	\end{picture}%
+]% scrplain style (end)
+%
+{% scrplain style (begin)
+	\rlap{~\pagemark}%%
+	\setlength{\unitlength}{\myLenghthFootAbstand}%
+	\begin{picture}(0,0)%
+		\put(0,-1)%
+		{%
+			\makebox(0,0)[lb]%
+			{%
+				\rule{0.4pt}{\myLenghthTemp}%
+			}%
+		}%
+	\end{picture}%
+}% scrplain style (end)
+
+%
+% #######################
+% End: Header and Footer Customization
+% #######################
+
+% This is an suggestion from Axel Reichert (LaTeX package author)
+% See CTAN: http://www.ctan.org/author/reichert
+% See CTAN: http://www.ctan.org/pkg/l2tabu-english (Cgapter: 1.8 Should I use \sloppy?)
+
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
